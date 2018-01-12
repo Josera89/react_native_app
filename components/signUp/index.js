@@ -14,7 +14,7 @@ import { StackNavigator } from 'react-navigation';
 const logo = require('../../images/logo.png');
 const backgroundImage = require('../../images/glow2.png');
 
-class Login extends React.Component {
+class SignIn extends React.Component {
   static navigationOptions = {
     header: false
   }
