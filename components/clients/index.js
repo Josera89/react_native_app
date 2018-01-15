@@ -1,11 +1,63 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+
+import Feather from 'react-native-vector-icons/Feather';
+import { Container, Header, Content, List, ListItem, Text, Left, Right, Button, Icon, Item, Input } from 'native-base';
+
 import { DrawerNavigator } from 'react-navigation'; // 1.0.0-beta.14
 
-const Clients = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>Clientes</Text>
-  </View>
-);
+export default class Clients extends Component {
 
-export default Clients;
+  render() {
+    return (
+      <Container>
+
+        <Header>
+        <Left>
+          <Button transparent>
+            <Icon name='ios-menu' />
+          </Button>
+        </Left>
+        <Right>
+          <Button transparent>
+            <Icon name='md-add' />
+          </Button>
+        </Right>
+        </Header>
+
+        <Content>
+
+
+        <Item searchBar rounded style={{ marginTop: 10 }}>
+          <Icon name="ios-search" />
+          <Input placeholder="Search" />
+          <Icon name="ios-people" />
+        </Item>
+
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>
+
+
+          <List>
+            <ListItem itemDivider>
+              <Text>A</Text>
+            </ListItem>
+            <ListItem >
+              <Text> Aaron Bennet</Text>
+            </ListItem>
+            <ListItem>
+              <Text> Ali Connors</Text>
+            </ListItem>
+            <ListItem itemDivider>
+              <Text>B</Text>
+            </ListItem>
+            <ListItem>
+              <Text> Bradley Horowitz</Text>
+            </ListItem>
+          </List>
+        </Content>
+
+      </Container>
+    );
+  }
+}

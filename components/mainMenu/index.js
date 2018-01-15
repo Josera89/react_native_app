@@ -1,12 +1,30 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+
+import Feather from 'react-native-vector-icons/Feather';
+import { Container, Header, Content, List, ListItem, Text, Left, Button, Icon } from 'native-base';
+
 import { DrawerNavigator } from 'react-navigation'; // 1.0.0-beta.14
 
+export default class Clients extends Component {
 
-const MainMenu = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>Menú Principal</Text>
-  </View>
-);
+  render() {
+    return (
+      <Container>
 
-export default MainMenu;
+        <Header>
+        <Left>
+          <Button transparent>
+            <Icon name='ios-menu' />
+          </Button>
+        </Left>
+
+        </Header>
+
+        <Content>
+
+        </Content>
+
+      </Container>
+    );
+  }
+}

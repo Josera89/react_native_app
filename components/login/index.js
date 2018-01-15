@@ -6,8 +6,7 @@ import { Image, Platform, ScrollView } from 'react-native';
 import { Container, Content, Text, InputGroup, Input, Button, Thumbnail, Icon, Item, View, Spinner } from 'native-base';
 import Feather from 'react-native-vector-icons/Feather'; // 4.4.2
 
-import ProfileScreen from '../profileScreen'
-import MainMenu from '../mainMenu'
+import SignUp from '../signUp'
 import AppNavigator from '../appNavigator'
 import { StackNavigator } from 'react-navigation';
 
@@ -22,6 +21,7 @@ class Login extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <Container style={styles.container} >
+
         <Content keyboardShouldPersistTaps="always" style={{ backgroundColor: '#384850' }}>
               <View style={styles.bg}>
                 <View style={{ flexGrow: 1, paddingBottom:10 }}>
@@ -59,6 +59,7 @@ class Login extends React.Component {
                   rounded
                   block
                   style={{ marginBottom: 5 }}
+                  // Remove name lucy
                   onPress={() => this.props.navigation.navigate('AppNavigator', {name: 'Lucy'})}
                 >
                   <Text style={{ color: 'rgba(1,188,140,1)' }}>Log In</Text>
@@ -67,6 +68,7 @@ class Login extends React.Component {
                 <Button
                   transparent
                   style={{ alignSelf: 'center' }}
+                  onPress={() => this.props.navigation.navigate('SignUp')}
                 >
                   <Text style={{ color:'#fff' }}>
                     Sign Up Here
@@ -86,8 +88,11 @@ const ModalStack = StackNavigator({
   AppNavigator: {
     screen: AppNavigator,
     navigationOptions: {
-      header: null,
-    },
+      header: null
+    }
+  },
+  SignUp: {
+    screen: SignUp
   }
 });
 
