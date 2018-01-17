@@ -10,8 +10,91 @@ import ProfileScreen from '../profileScreen'
 import Calculate from '../calculate'
 import Reservation from '../reservation'
 
-const HomeScreen = () => (
-  <MainMenu />
+import { Container, Header, Left, Right, Button, Icon } from 'native-base';
+
+const HomeScreen = ({ navigation }) => (
+  <Container>
+    <Header>
+      <Left>
+        <Button
+          transparent
+          onPress={() => navigation.navigate('DrawerOpen')}
+        >
+          <Icon name='ios-menu' />
+        </Button>
+      </Left>
+    </Header>
+    <MainMenu />
+  </Container>
+);
+
+const ContactList = ({ navigation }) => (
+  <Container>
+    <Header>
+    <Left>
+      <Button
+        transparent
+        onPress={() => navigation.navigate('DrawerOpen')}
+      >
+        <Icon name='ios-menu' />
+      </Button>
+    </Left>
+    <Right>
+      <Button transparent>
+        <Icon name='md-add' />
+      </Button>
+    </Right>
+    </Header>
+    <Clients />
+  </Container>
+);
+
+const DrivingDistance = ({ navigation }) => (
+  <Container>
+    <Header>
+      <Left>
+        <Button
+          transparent
+          onPress={() => navigation.navigate('DrawerOpen')}
+        >
+          <Icon name='ios-menu' />
+        </Button>
+      </Left>
+    </Header>
+    <Calculate />
+  </Container>
+);
+
+const Schedule = ({ navigation }) => (
+  <Container>
+    <Header>
+      <Left>
+        <Button
+          transparent
+          onPress={() => navigation.navigate('DrawerOpen')}
+        >
+          <Icon name='ios-menu' />
+        </Button>
+      </Left>
+    </Header>
+    <Reservation />
+  </Container>
+);
+
+const Settings = ({ navigation }) => (
+  <Container>
+    <Header>
+      <Left>
+        <Button
+          transparent
+          onPress={() => navigation.navigate('DrawerOpen')}
+        >
+          <Icon name='ios-menu' />
+        </Button>
+      </Left>
+    </Header>
+    <ProfileScreen />
+  </Container>
 );
 
 const RootDrawer = DrawerNavigator({
@@ -29,7 +112,7 @@ const RootDrawer = DrawerNavigator({
     },
   },
   Clients: {
-    screen: Clients,
+    screen: ContactList,
     navigationOptions: {
       drawerLabel: 'Clientes',
       drawerIcon: ({ tintColor, focused }) => (
@@ -42,12 +125,12 @@ const RootDrawer = DrawerNavigator({
     },
   },
   Calculate: {
-    screen: Calculate,
+    screen: DrivingDistance,
     navigationOptions: {
       drawerLabel: 'Cotizador',
       drawerIcon: ({ tintColor, focused }) => (
         <Feather
-          name={'info'}
+          name={'map'}
           size={24}
           style={{ color: tintColor }}
         />
@@ -55,7 +138,7 @@ const RootDrawer = DrawerNavigator({
     },
   },
   Reservation: {
-    screen: Reservation,
+    screen: Schedule,
     navigationOptions: {
       drawerLabel: 'Reservaciones',
       drawerIcon: ({ tintColor, focused }) => (
@@ -68,7 +151,7 @@ const RootDrawer = DrawerNavigator({
     },
   },
   Profile: {
-    screen: ProfileScreen,
+    screen: Settings,
     navigationOptions: {
       drawerLabel: 'Configurar Perfil',
       drawerIcon: ({ tintColor, focused }) => (

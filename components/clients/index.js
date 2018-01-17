@@ -9,23 +9,7 @@ export default class Clients extends Component {
 
   render() {
     return (
-      <Container>
-
-        <Header>
-        <Left>
-          <Button transparent>
-            <Icon name='ios-menu' />
-          </Button>
-        </Left>
-        <Right>
-          <Button transparent>
-            <Icon name='md-add' />
-          </Button>
-        </Right>
-        </Header>
-
         <Content>
-
 
         <Item searchBar rounded style={{ marginTop: 10 }}>
           <Icon name="ios-search" />
@@ -55,9 +39,8 @@ export default class Clients extends Component {
               <Text> Bradley Horowitz</Text>
             </ListItem>
           </List>
+          
         </Content>
-
-      </Container>
     );
   }
 }
