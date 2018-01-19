@@ -22,7 +22,7 @@ class Login extends React.Component {
     return (
       <Container style={styles.container} >
 
-        <Content keyboardShouldPersistTaps="always" style={{ backgroundColor: '#384850' }}>
+        <Content keyboardShouldPersistTaps="always" style={{ backgroundColor: '#e64a19' }}>
               <View style={styles.bg}>
                 <View style={{ flexGrow: 1, paddingBottom:10 }}>
                   <Item underline style={{ borderBottomWidth:(Platform.OS === 'ios') ? 0.5 : 1 }}>
@@ -39,7 +39,7 @@ class Login extends React.Component {
                   <Item underline style={{ borderBottomWidth:(Platform.OS === 'ios') ? 0.5 : 1 }}>
                     <Feather name="unlock" />
                     <Input
-                      placeholder="PASSWORD"
+                      placeholder="CONTRASEÑA"
                       placeholderTextColor="#FFF"
                       secureTextEntry
                     />
@@ -51,18 +51,19 @@ class Login extends React.Component {
                   style={{ alignSelf: 'flex-end', marginBottom: (Platform.OS === 'ios') ? 5 : 5, marginTop: 5 }}
                 >
                   <Text style={{ color:'#fff' }}>
-                    Forgot Password
+                    Recordar Contraseña
                   </Text>
                 </Button>
 
                 <Button
+                  light
                   rounded
                   block
                   style={{ marginBottom: 5 }}
                   // Remove name lucy
                   onPress={() => this.props.navigation.navigate('AppNavigator', {name: 'Lucy'})}
                 >
-                  <Text style={{ color: 'rgba(1,188,140,1)' }}>Log In</Text>
+                  <Text style={{ color: '#d84315' }}>Log In</Text>
                 </Button>
 
                 <Button
@@ -71,7 +72,7 @@ class Login extends React.Component {
                   onPress={() => this.props.navigation.navigate('SignUp')}
                 >
                   <Text style={{ color:'#fff' }}>
-                    Sign Up Here
+                    Registrate
                   </Text>
                 </Button>
                 </View>

@@ -57,7 +57,7 @@ class Calculate extends Component {
                 <Left>
                   <Thumbnail source={{uri: 'Image URL'}} />
                   <Body>
-                    <Text>SELECCIONA LA RUTA</Text>
+                    <Text style={{color: '#e64a19', marginTop: 10, fontSize: 20}}>SELECCIONA LA RUTA</Text>
                   </Body>
                 </Left>
               </CardItem>
@@ -113,13 +113,9 @@ class Calculate extends Component {
 
               <CardItem>
                 <Left>
-                  <Text>Distancia: </Text>
-                  <Text>{this.state.distance} Km</Text>
+                  <Text style={{color: '#e64a19', marginTop: 10, fontSize: 15}}>Distancia: </Text>
+                  <Text style={{color: '#e64a19', marginTop: 10, fontSize: 17}}>{this.state.distance} Km</Text>
                 </Left>
-                <Right>
-                  <Text>Tiempo: </Text>
-                  <Text>{this.state.duration} hrs</Text>
-                </Right>
               </CardItem>
             </Card>
 
@@ -127,7 +123,7 @@ class Calculate extends Component {
               <CardItem>
                 <Content>
                   <Left>
-                    <Text>Precio por Km: ${this.state.costKm}</Text>
+                    <Text style={{color: '#e64a19', marginTop: 10, fontSize: 25}}>Precio por Km: ${this.state.costKm}</Text>
                   </Left>
                   <Slider
                     style={{ width: 300 }}
@@ -144,15 +140,17 @@ class Calculate extends Component {
             <Card>
               <CardItem>
                 <Content>
-                  <Text>Costo deL Viaje</Text>
-                  <Text>$ {(this.state.costKm)*(this.state.distance)}</Text>
+                  <Left>
+                    <Text style={{color: '#e64a19', marginTop: 8, fontSize: 13, justifyContent: "center", alignItems: "center",}}>Costo del Viaje</Text>
+                    <Text style={{color: '#e64a19', marginTop: 6, fontSize: 35}}>$ {(this.state.costKm)*(this.state.distance)}</Text>
+                  </Left>
                 </Content>
               </CardItem>
             </Card>
           </Content>
 
-          <Button block success style={{ width: 300, marginLeft: 40, marginBottom: 15}}>
-            <Text>RESERVAR VIAJE</Text>
+          <Button block success style={{ width: 300, marginLeft: 40, marginBottom: 6, backgroundColor: '#e64a19'}}>
+            <Text style={{ color: 'white', fontSize: 15}}>RESERVAR VIAJE</Text>
           </Button>
 
         </Container>

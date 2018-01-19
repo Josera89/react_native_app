@@ -21,10 +21,15 @@ export default {
   bg: {
     flex: 1,
     marginTop: deviceHeight / 2 - 15,
-    backgroundColor: '#00b8d4',
+    // backgroundColor: '#00b8d4',
+    backgroundColor: '#e64a19',
     paddingTop: 10,
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: Platform.OS === 'ios' ? 70 : 50,
   },
+  login: {
+    color: 'white',
+    marginBottom: 5
+  }
 };

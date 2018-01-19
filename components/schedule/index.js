@@ -21,10 +21,13 @@ export default class AgendaScreen extends Component {
     return (
       <Agenda
         items={
-          {'2018-01-12': [{text: 'item 1 - any js object'}],
-           '2018-01-13': [{text: 'item 2 - any js object'}],
-           '2018-01-14': [],
-           '2018-01-15': [{text: 'item 3 - any js object'},{text: 'any js object'}],
+          {'2018-01-16': [{text: 'item 1 - any js object', disabled: true, startingDay: true, color: 'green', endingDay: true}],
+           '2018-01-17': [{text: 'item 2 - any js object'}],
+           '2018-01-18': [],
+           '2018-01-19': [{text: 'item 3 - any js object'}],
+           '2018-01-20': [{text: 'item 3 - any js object'}],
+           '2018-01-21': [],
+           '2018-01-22': [],
           }}
         loadItemsForMonth={(month) => {console.log('trigger items loading')}}
         selected={new Date()}
@@ -114,6 +117,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     marginRight: 20,
-    marginLeft: 20
+    marginLeft: 20,
+    padding: 10,
   }
 });

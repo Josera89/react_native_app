@@ -8,19 +8,19 @@ import Login from '../login';
 import Clients from '../clients'
 import ProfileScreen from '../profileScreen'
 import Calculate from '../calculate'
-import Reservation from '../reservation'
+import Schedule from '../schedule'
 
 import { Container, Header, Left, Right, Button, Icon } from 'native-base';
 
 const HomeScreen = ({ navigation }) => (
   <Container>
-    <Header>
+    <Header style={{backgroundColor: '#e64a19'}}>
       <Left>
         <Button
           transparent
           onPress={() => navigation.navigate('DrawerOpen')}
         >
-          <Icon name='ios-menu' />
+          <Icon name='ios-menu' style={{color: 'white'}} />
         </Button>
       </Left>
     </Header>
@@ -28,36 +28,15 @@ const HomeScreen = ({ navigation }) => (
   </Container>
 );
 
-const ContactList = ({ navigation }) => (
-  <Container>
-    <Header>
-    <Left>
-      <Button
-        transparent
-        onPress={() => navigation.navigate('DrawerOpen')}
-      >
-        <Icon name='ios-menu' />
-      </Button>
-    </Left>
-    <Right>
-      <Button transparent>
-        <Icon name='md-add' />
-      </Button>
-    </Right>
-    </Header>
-    <Clients />
-  </Container>
-);
-
 const DrivingDistance = ({ navigation }) => (
   <Container>
-    <Header>
+    <Header style={{backgroundColor: '#e64a19'}}>
       <Left>
         <Button
           transparent
           onPress={() => navigation.navigate('DrawerOpen')}
         >
-          <Icon name='ios-menu' />
+          <Icon name='ios-menu' style={{color: 'white'}}/>
         </Button>
       </Left>
     </Header>
@@ -65,31 +44,52 @@ const DrivingDistance = ({ navigation }) => (
   </Container>
 );
 
-const Schedule = ({ navigation }) => (
+const ScheduleAgenda = ({ navigation }) => (
   <Container>
-    <Header>
+    <Header style={{backgroundColor: '#e64a19'}}>
       <Left>
         <Button
           transparent
           onPress={() => navigation.navigate('DrawerOpen')}
         >
-          <Icon name='ios-menu' />
+          <Icon name='ios-menu' style={{color: 'white'}}/>
         </Button>
       </Left>
     </Header>
-    <Reservation />
+    <Schedule />
+  </Container>
+);
+
+const ContactList = ({ navigation }) => (
+  <Container>
+    <Header style={{backgroundColor: '#e64a19'}}>
+    <Left>
+      <Button
+        transparent
+        onPress={() => navigation.navigate('DrawerOpen')}
+      >
+        <Icon name='ios-menu' style={{color: 'white'}}/>
+      </Button>
+    </Left>
+    <Right>
+      <Button transparent>
+        <Icon name='md-add' style={{color: 'white'}}/>
+      </Button>
+    </Right>
+    </Header>
+    <Clients />
   </Container>
 );
 
 const Settings = ({ navigation }) => (
   <Container>
-    <Header>
+    <Header style={{backgroundColor: '#e64a19'}}>
       <Left>
         <Button
           transparent
           onPress={() => navigation.navigate('DrawerOpen')}
         >
-          <Icon name='ios-menu' />
+          <Icon name='ios-menu' style={{color: 'white'}}/>
         </Button>
       </Left>
     </Header>
@@ -111,19 +111,6 @@ const RootDrawer = DrawerNavigator({
       ),
     },
   },
-  Clients: {
-    screen: ContactList,
-    navigationOptions: {
-      drawerLabel: 'Clientes',
-      drawerIcon: ({ tintColor, focused }) => (
-        <Feather
-          name={'users'}
-          size={24}
-          style={{ color: tintColor }}
-        />
-      ),
-    },
-  },
   Calculate: {
     screen: DrivingDistance,
     navigationOptions: {
@@ -137,13 +124,26 @@ const RootDrawer = DrawerNavigator({
       ),
     },
   },
-  Reservation: {
-    screen: Schedule,
+  Schedule: {
+    screen: ScheduleAgenda,
     navigationOptions: {
-      drawerLabel: 'Reservaciones',
+      drawerLabel: 'Agenda',
       drawerIcon: ({ tintColor, focused }) => (
         <Feather
           name={'calendar'}
+          size={24}
+          style={{ color: tintColor }}
+        />
+      ),
+    },
+  },
+  Clients: {
+    screen: ContactList,
+    navigationOptions: {
+      drawerLabel: 'Clientes',
+      drawerIcon: ({ tintColor, focused }) => (
+        <Feather
+          name={'users'}
           size={24}
           style={{ color: tintColor }}
         />
