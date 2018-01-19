@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import { Button } from 'native-base';
+
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 import { DrawerNavigator } from 'react-navigation'; // 1.0.0-beta.14
@@ -18,12 +20,21 @@ export default class AgendaScreen extends Component {
   render() {
     return (
       <Agenda
-        items={this.state.items}
-        loadItemsForMonth={this.loadItems.bind(this)}
-        selected={'2017-05-16'}
+        items={
+          {'2018-01-12': [{text: 'item 1 - any js object'}],
+           '2018-01-13': [{text: 'item 2 - any js object'}],
+           '2018-01-14': [],
+           '2018-01-15': [{text: 'item 3 - any js object'},{text: 'any js object'}],
+          }}
+        loadItemsForMonth={(month) => {console.log('trigger items loading')}}
+        selected={new Date()}
         renderItem={this.renderItem.bind(this)}
         renderEmptyDate={this.renderEmptyDate.bind(this)}
         rowHasChanged={this.rowHasChanged.bind(this)}
+
+        onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
+        onDayPress={(day)=>{console.log('day pressed')}}
+        renderKnob={() => {return (<View />);}}
 
       />
     );
@@ -45,25 +56,33 @@ export default class AgendaScreen extends Component {
           }
         }
       }
-      //console.log(this.state.items);
+      console.log(this.state.items);
       const newItems = {};
       Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
       this.setState({
         items: newItems
       });
     }, 1000);
-    // console.log(`Load Items for ${day.year}-${day.month}`);
+    console.log(`Load Items for ${day.year}-${day.month}`);
   }
 
   renderItem(item) {
     return (
-      <View style={[styles.item, {height: item.height}]}><Text>{item.name}</Text></View>
+      <View style={[styles.item, {height: item.height}]}>
+        <Button rounded danger>
+          <Text style={styles.text}>Cancelar Fecha</Text>
+        </Button>
+      </View>
     );
   }
 
   renderEmptyDate() {
     return (
-      <View style={styles.emptyDate}><Text>This is empty date!</Text></View>
+      <View style={styles.emptyDate}>
+        <Button rounded success>
+          <Text style={styles.text}>Reservar Fecha</Text>
+        </Button>
+      </View>
     );
   }
 
@@ -79,7 +98,7 @@ export default class AgendaScreen extends Component {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     flex: 1,
     borderRadius: 5,
     padding: 10,
@@ -88,7 +107,13 @@ const styles = StyleSheet.create({
   },
   emptyDate: {
     height: 15,
+    // width: 1000,
     flex:1,
     paddingTop: 30
+  },
+  text: {
+    color: 'white',
+    marginRight: 20,
+    marginLeft: 20
   }
 });

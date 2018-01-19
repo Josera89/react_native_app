@@ -83,7 +83,6 @@ class Calculate extends Component {
                       destination={this.state.coordinates[this.state.coordinates.length-1]}
                       apikey={GM_APIKEY}
                       region="ES"
-                      mode="transit"
                       strokeWidth={3}
                       strokeColor="hotpink"
                       onReady={(result) => {
@@ -152,8 +151,8 @@ class Calculate extends Component {
             </Card>
           </Content>
 
-          <Button block success style={{ width: 300, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>Reservar Viaje</Text>
+          <Button block success style={{ width: 300, marginLeft: 40, marginBottom: 15}}>
+            <Text>RESERVAR VIAJE</Text>
           </Button>
 
         </Container>
