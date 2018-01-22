@@ -1,12 +1,10 @@
-// import React from 'react';
-import { Container, Header, Content, List, ListItem, Left, Right, Button, Icon, Card, CardItem, Thumbnail, Body, Item, Input } from 'native-base';
-import { View, Text, Slider } from 'react-native';
-import { DrawerNavigator } from 'react-navigation'; // 1.0.0-beta.14
-
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, Slider } from 'react-native';
+import { Container, Header, Content, List, ListItem, Left, Right, Button, Icon, Card, CardItem, Thumbnail, Body, Item, Input } from 'native-base';
+import { DrawerNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import MapView from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
+import styles from "./styles";
 
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -28,7 +26,6 @@ class Calculate extends Component {
       duration: 0,
       costKm: 30
     };
-
     this.mapView = null;
   }
 
@@ -57,7 +54,7 @@ class Calculate extends Component {
                 <Left>
                   <Thumbnail source={{uri: 'Image URL'}} />
                   <Body>
-                    <Text style={{color: '#e64a19', marginTop: 10, fontSize: 20}}>SELECCIONA LA RUTA</Text>
+                    <Text style={styles.title}>SELECCIONA LA RUTA</Text>
                   </Body>
                 </Left>
               </CardItem>
@@ -69,7 +66,7 @@ class Calculate extends Component {
                     latitudeDelta: LATITUDE_DELTA,
                     longitudeDelta: LONGITUDE_DELTA,
                   }}
-                  style={{height: 200, width: null, flex: 1}}
+                  style={styles.mapView}
                   ref={c => this.mapView = c}
                   onPress={this.onMapPress}
                 >
@@ -113,8 +110,8 @@ class Calculate extends Component {
 
               <CardItem>
                 <Left>
-                  <Text style={{color: '#e64a19', marginTop: 10, fontSize: 15}}>Distancia: </Text>
-                  <Text style={{color: '#e64a19', marginTop: 10, fontSize: 17}}>{this.state.distance} Km</Text>
+                  <Text style={styles.distanceText}>Distancia: </Text>
+                  <Text style={styles.distanceText}>{this.state.distance} Km</Text>
                 </Left>
               </CardItem>
             </Card>
@@ -123,10 +120,10 @@ class Calculate extends Component {
               <CardItem>
                 <Content>
                   <Left>
-                    <Text style={{color: '#e64a19', marginTop: 10, fontSize: 25}}>Precio por Km: ${this.state.costKm}</Text>
+                    <Text style={styles.priceText}>Precio por Km: ${this.state.costKm}</Text>
                   </Left>
                   <Slider
-                    style={{ width: 300 }}
+                    style={styles.slider}
                     step={1}
                     minimumValue={1}
                     maximumValue={100}
@@ -141,16 +138,16 @@ class Calculate extends Component {
               <CardItem>
                 <Content>
                   <Left>
-                    <Text style={{color: '#e64a19', marginTop: 8, fontSize: 13, justifyContent: "center", alignItems: "center",}}>Costo del Viaje</Text>
-                    <Text style={{color: '#e64a19', marginTop: 6, fontSize: 35}}>$ {(this.state.costKm)*(this.state.distance)}</Text>
+                    <Text style={styles.totalText}>Costo del Viaje</Text>
+                    <Text style={styles.totalPrice}>$ {(this.state.costKm)*(this.state.distance)}</Text>
                   </Left>
                 </Content>
               </CardItem>
             </Card>
           </Content>
 
-          <Button block success style={{ width: 300, marginLeft: 40, marginBottom: 6, backgroundColor: '#e64a19'}}>
-            <Text style={{ color: 'white', fontSize: 15}}>RESERVAR VIAJE</Text>
+          <Button block success style={styles.confirmationButton}>
+            <Text style={styles.confirmationText}>RESERVAR VIAJE</Text>
           </Button>
 
         </Container>
