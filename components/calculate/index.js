@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, View, Text, Slider } from 'react-native';
-import { Container, Header, Content, List, ListItem, Left, Right, Button, Icon, Card, CardItem, Thumbnail, Body, Item, Input } from 'native-base';
+import { Container, Header, Content, List, ListItem, Left, Right, Button, Icon, Card, CardItem, Thumbnail, Body, Item, Form, Input, Label, CheckBox } from 'native-base';
 import { DrawerNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import MapView from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
@@ -13,6 +13,7 @@ const LONGITUDE = -99.133209;
 const LATITUDE_DELTA = 1;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
+//Move to .env or similar
 const GM_APIKEY = 'AIzaSyCv0PqqkTJLRxyEAB6FSwXqVJ9ySsy13v0';
 
 class Calculate extends Component {
@@ -49,6 +50,82 @@ class Calculate extends Component {
     return (
       <Container>
           <Content>
+
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text style={styles.title}>Datos del Cliente</Text>
+                      <Form style={{flexDirection: 'row'}}>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Nombre" />
+                        </Item>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Telefono" />
+                        </Item>
+                      </Form>
+
+                      <Form style={{flexDirection: 'row'}}>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Mail" />
+                        </Item>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Grupo" />
+                        </Item>
+                      </Form>
+                      <ListItem>
+                       <CheckBox checked={false} />
+                       <Body>
+                         <Text> AGREGAR A AGENDA</Text>
+                       </Body>
+                      </ListItem>
+                  </Body>
+                </Left>
+              </CardItem>
+            </Card>
+
+
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text style={styles.title}>Datos del Viaje</Text>
+                      <Form style={{flexDirection: 'row'}}>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Origen" />
+                        </Item>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Destino" />
+                        </Item>
+                      </Form>
+
+                      <Form style={{flexDirection: 'row'}}>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Otro" />
+                        </Item>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Motivo" />
+                        </Item>
+                      </Form>
+                      <Form style={{flexDirection: 'row'}}>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Fecha Salida" />
+                        </Item>
+                        <Item style={{width: 150}}>
+                          <Input placeholder="Fecha regreso" />
+                        </Item>
+                      </Form>
+                      <ListItem>
+                       <CheckBox checked={false} />
+                       <Body>
+                         <Text> FRA</Text>
+                       </Body>
+                      </ListItem>
+                  </Body>
+                </Left>
+              </CardItem>
+            </Card>
+
             <Card>
               <CardItem>
                 <Left>
